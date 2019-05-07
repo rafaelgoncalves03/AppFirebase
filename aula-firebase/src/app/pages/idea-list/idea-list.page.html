@@ -1,0 +1,21 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>IdeaList</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <ion-fab vertical="bottom" horizontal="end" slot="fixed" >
+    <ion-fab-button routerLink="/idea-details">
+      <ion-icon name="add"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+
+  <ion-list>
+    <ion-item button *ngFor="let idea of (ideas | async)"
+    [routerLink]="['/idea-details', idea.id]" >
+      {{idea.name}} &nbsp; {{idea.notes}}
+    </ion-item>
+  </ion-list>
+
+</ion-content>
